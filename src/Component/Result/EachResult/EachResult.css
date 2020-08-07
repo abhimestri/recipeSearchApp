@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+
+.eachBox{
+    margin: 70px 5px 10px 40px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    box-shadow: 0 0 40px #ccc;
+    width: auto;
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
+    height: 55vh;
+}
+.eachBox:hover{
+    box-shadow: 0 0 30px rgb(73, 72, 72);
+}
+.TitleBox{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
+.ingreadients{
+    font-family: 'Raleway', sans-serif;
+    margin: 10px 0 0 30px;
+}
+.eachBox > ul > li{
+    list-style: none;
+    padding-top: 4px;
+    padding-left: 10px;
+    margin:  0 0 0 10px;
+    font-family: 'Raleway', sans-serif;
+}
+.calories{
+    font-family: 'Raleway', sans-serif;
+    margin: 20px 0 30px 30px;
+}
+.eachBox > img {
+    width: 100%;
+    height: 35vh;
+}

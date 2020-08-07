@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+.popularitySection{
+    width: 80%;
+    height: 45%;
+    margin: 0 0 10vh 0;
+    position: relative;
+    top: 40vh;
+    left: 8%;
+}
+.popularityTitle{
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Raleway', sans-serif;
+}
+.popularityCardSec{
+    width: 80%;
+    height: 80%;
+    position: relative;
+    left: 10%;
+}
+.row1{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.row2{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.eachCard{
+    width: 200px;
+    height: 100px;
+    background-color: brown;
+    margin: 10px;
+    border-radius: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 10px 80px inset;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+}
+.eachCard > p{
+    text-align: center;
+    color: #fff;
+    margin-top: 3em;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+.eachCard:hover{
+    box-shadow: 0px 0px 30px rgb(78, 77, 77);
+}
+.card1{
+    background-image: url('../../../../../assets/8-block/bacon.jpg');
+}
+
+.card2{
+    background-image: url('../../../../../assets/8-block/fries.jpg');
+}
+.card3{
+    background-image: url('../../../../../assets/8-block/cake.jpg');
+}
+.card4{
+    background-image: url('../../../../../assets/8-block/whitechocolate.jpg');
+}
+.card5{
+    background-image: url('../../../../../assets/8-block/mushroom.jpg');
+}
+.card6{
+    background-image: url('../../../../../assets/8-block/icecream.jpg');
+}
+.card7{
+    background-image: url('../../../../../assets/8-block/pancake.jpg');
+}
+.card8{
+    background-image: url('../../../../../assets/8-block/sushi.jpg');
+}

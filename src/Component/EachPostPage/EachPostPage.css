@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+
+.Container{
+    width: 96%;
+    position: absolute;
+    top: 10vh;
+    left: 4vh;
+    height: 90vh;
+    display: flex;
+}
+
+.leftSideContent{
+    width: 70%;
+    height: 80vh;
+    overflow: scroll;
+}
+.rightSideContent{
+    height: 80vh;
+    border-left: 0.5px solid rgb(192, 191, 191);
+}
+
+.favoriteIconHeart{
+    position: relative;
+    left: 50vh;
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.innerRightSideContent{
+    height: 80vh;
+    position: relative;
+    left: 4%;
+    top: 0%;
+}
+
+.TitleForEachRecipe{
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    margin: 15px;
+}
+
+.Img{
+    width: 65%;
+    height: 70%;
+    margin: 3vh 0 0 7vh;
+    border-radius: 4px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ulSectionForEachRecipeIng{
+    margin: 4vh 0 1vh 5vh;
+}
+
+.IngredientsTitle{
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    margin: 25px 0 0 15px;
+}
+
+.ulSectionForEachRecipeIng > li {
+    font-family: 'Raleway', sans-serif;
+    list-style: circle;
+    padding-top:7px ;
+}
+
+.ContentsTitle{
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    margin: 25px 0 0 15px;
+}
+
+.ulSectionForEachRecipeContents{
+    margin: 4vh 0 1vh 5vh;
+}
+
+.ulSectionForEachRecipeContents > li{
+    font-family: 'Raleway', sans-serif;
+    list-style: circle;
+    padding-top:7px ;
+}
+
+
+.CaloriesCount{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin: 25px 0 0 20px;
+}
+
+.totalWeightCount{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin: 15px 0 0 20px;
+}
+
+.urlSection{
+    margin: 30px 0 0 20px;
+    display: flex;
+}
+.linkReferenceBtn{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin: 5px 0 0 10px;
+    color: #000;
+    text-decoration: none;
+}
+.ServingDone{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin: 25px 0 0 20px;
+}

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+.foddItemsCards{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    position: relative;
+    left: 8%;
+    top: 10vh;
+}
+.eachCardForFoodItem{
+    width: 90%;
+    height: 150%;
+    background-color: aqua;
+    margin: 40px;
+    border-radius: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 10px 10px 150px 0px inset;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+    color: none;
+}
+
+.eachCardForFoodItem:hover{
+    box-shadow: 0 0 30px rgb(71, 71, 71);
+}
+
+.item1{
+    background-image: url('../../../../../assets/CAKE.jpg');
+}
+.item2{
+    background-image: url('../../../../../assets/Pizza.jpg');
+}
+.item3{
+    background-image: url('../../../../../assets/ROLLS.jpg');
+}
+.item4{
+    background-image: url('../../../../../assets/SALAD.jpg');
+}
+
+
+.contentDescription{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    position: relative;
+    top: 65%;
+}

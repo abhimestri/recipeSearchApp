@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+.mostSearchedBox{
+    width: 100%;
+    /* position: absolute;
+    top: 270%; */
+    position: relative;
+    top: -30%;
+}
+.title{
+    position: relative;
+    top: 10%;
+    font-size: 40px;
+    font-weight: 200;
+    margin: 0 0 0 20vh;
+    font-family: 'Raleway', sans-serif;
+}
+.mostSearchedBlockInner{
+    width: 80%;
+    height: 100px;
+    position: relative;
+    left: 0%;
+    display: flex;
+    margin: 5vh 0 0 0 ;
+}
+.firstBlock{
+    position: relative;
+    margin: auto;
+    display: inline;
+    font-size: 17px;
+    color: rgb(122, 120, 120);
+    font-family: 'Raleway', sans-serif;
+    left: 10%;
+}
+.firstBlock > li{
+    list-style: none;
+    margin: 14px;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+.firstBlock > li:hover{
+   color: #333;
+}

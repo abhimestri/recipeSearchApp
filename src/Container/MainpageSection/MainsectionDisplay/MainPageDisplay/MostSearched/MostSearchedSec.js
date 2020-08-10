@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './MostSearchedSec.css'
 import { connect } from 'react-redux'
 import  { withRouter } from 'react-router-dom'
+import * as actionTypes from '../../../../../Store/actions/actionTypes'
 
 class MostSearched extends Component{
 
@@ -53,7 +54,7 @@ class MostSearched extends Component{
 
 const mapDispatchToProps = dispatch => {
     return { 
-        updateRecipe : (nameOfRecipe) => dispatch({type :'RECEPIENAME_UPDATED' , recipeName : nameOfRecipe })
+        updateRecipe : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
     }
 }
 

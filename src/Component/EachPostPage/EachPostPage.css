@@ -23,9 +23,17 @@
 .favoriteIconHeart{
     position: relative;
     left: 50vh;
-    color: red;
     font-size: 25px;
     cursor: pointer;
+    transition: all ease-in-out 0.27s;
+}
+.favoriteIconHeartActive{
+    position: relative;
+    left: 50vh;
+    font-size: 25px;
+    cursor: pointer;
+    color: red;
+    transition: all ease-in-out 0.27s;
 }
 
 .innerRightSideContent{
@@ -106,6 +114,11 @@
     margin: 5px 0 0 10px;
     color: #000;
     text-decoration: none;
+    transition: all ease-in-out 0.2s;
+}
+
+.linkReferenceBtn:hover{
+    color: rgb(90, 88, 88);
 }
 .ServingDone{
     font-family: 'Raleway', sans-serif;

@@ -4,6 +4,7 @@ import {Route , Link } from 'react-router-dom'
 import Mainpage from '../MainPage/Mainpage'
 import Result from '../Result/Result'
 import EachRecipeDetail from '../EachPostPage/EachPostPage'
+import Favorites from '../Favorites/favorites'
 
 class Header extends Component{
     render(){
@@ -16,7 +17,7 @@ class Header extends Component{
                     <li className="NavbarUl-Li"><Link to="/Authentication" className="Li-item" >Authenticate</Link></li>
                 </ul>
                 <Route path="/" exact component={Mainpage}/>
-                <Route path="/favorites" exact render={() => <h1>favorites</h1> } />
+                <Route exact path="/favorites"  component={Favorites} />
                 <Route exact path="/result" component={Result} />
                 <Route exact path="/result/eachPost" component={EachRecipeDetail}/> 
                 <Route path="/Documentation" exact render={() => <h1>Documentation</h1> } />

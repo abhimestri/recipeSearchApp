@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './Header.css'
 import {Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import * as actionTypes from '../../../Store/actions/actionTypes'
+
 
 class Header extends Component {
 
@@ -48,7 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRecipeNameChanged : (nameOfRecipe) => dispatch({type :'RECEPIENAME_UPDATED' , recipeName : nameOfRecipe })
+        onRecipeNameChanged : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
     }
 }
 

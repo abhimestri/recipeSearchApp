@@ -54,7 +54,7 @@ class MostSearched extends Component{
 
 const mapDispatchToProps = dispatch => {
     return { 
-        updateRecipe : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        updateRecipe : (nameOfRecipe) => dispatch({type :actionTypes.UPDATE_NEW_SEARCHED_RECIPE , recipeName : nameOfRecipe })
     }
 }
 

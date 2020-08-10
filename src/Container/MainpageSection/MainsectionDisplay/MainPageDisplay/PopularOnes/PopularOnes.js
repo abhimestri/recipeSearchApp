@@ -53,7 +53,7 @@ class PopularItems extends Component {
 
 const mapDispatchToProps =  dispatch =>  {
     return {
-        recipeNameUpdate : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        recipeNameUpdate : (nameOfRecipe) => dispatch({type :actionTypes.UPDATE_NEW_SEARCHED_RECIPE , recipeName : nameOfRecipe })
     }
 }
 

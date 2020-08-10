@@ -9,8 +9,8 @@ import * as actionTypes from '../../Store/actions/actionTypes'
 class ResultPage extends Component {
 
     state = {
-        fetched : false,
-        data : []
+        fetched: false,
+        data: []
     }
 
     // componentDid(){
@@ -18,56 +18,56 @@ class ResultPage extends Component {
         axios.get(`https://api.edamam.com/search?q=${this.props.searchedRecipeName}&app_id=937d325f&app_key=ba1746589072fe4a4a40fca5d091b43d`)
             .then(res => {
                 this.setState({
-                    data : [...res.data.hits],
+                    data: [...res.data.hits],
                     fetched: true
                 })
             })
             .catch(err => console.log(err))
-        } 
+    }
     // }
 
-    eachRecipeHandler = (dataOfRecipe) =>{
+    eachRecipeHandler = (dataOfRecipe) => {
         //  alert(name + cal)
         this.props.history.push('/result/eachPost')
-         this.props.setEachRecipeContent(dataOfRecipe)
-    } 
+        this.props.setEachRecipeContent(dataOfRecipe)
+    }
 
-    
-    render(){ 
 
-        if(!this.state.fetched){
+    render() {
+
+        if (!this.state.fetched) {
             this.data()
-        } 
-        let Data =[] , dataSet
+        }
+        let Data = [], dataSet
 
         // console.log(this.state.data)
 
         this.state.data.forEach(recipe => {
             dataSet = {
-                recipeData : recipe.recipe,
-                recepieName : recipe.recipe.label,
-                image : recipe.recipe.image,
-                ingredients : [...recipe.recipe.ingredientLines],
-                calories : recipe.recipe.calories
+                recipeData: recipe.recipe,
+                recepieName: recipe.recipe.label,
+                image: recipe.recipe.image,
+                ingredients: [...recipe.recipe.ingredientLines],
+                calories: recipe.recipe.calories
             }
             Data.push(dataSet)
         })
 
         let result;
-        if(this.props.searchedRecipeName === null ){
+        if (this.props.searchedRecipeName === null) {
             result = <p className="errorThrow" >Please enter your recipe name</p>
-        }else{
+        } else {
             result = Data.map(recipe => {
                 return (
-                    <EachRecipe 
-                        clicked = {() => this.eachRecipeHandler(recipe.recipeData)}
-                        recipeName = {recipe.recepieName}
-                        image = {recipe.image}
-                        ingredients = {recipe.ingredients}
-                        calories = {recipe.calories}
-                        
+                    <EachRecipe
+                        clicked={() => this.eachRecipeHandler(recipe.recipeData)}
+                        recipeName={recipe.recepieName}
+                        image={recipe.image}
+                        ingredients={recipe.ingredients}
+                        calories={recipe.calories}
+
                     />
-                    
+
                 )
             })
         }
@@ -85,14 +85,14 @@ class ResultPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        searchedRecipeName : state.inputSearchedRecipe,
+        searchedRecipeName: state.inputSearchedRecipe,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setEachRecipeContent : eachRecipeData => dispatch({type :actionTypes.EACHRECIPE_DETAILS , recipeData : eachRecipeData })
+        setEachRecipeContent: eachRecipeData => dispatch({ type: actionTypes.UPDATE_SEARCHED_RECIPE_DETAILS, recipeData: eachRecipeData })
     }
 }
 
-export default connect(mapStateToProps , mapDispatchToProps)(withRouter(ResultPage))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ResultPage))

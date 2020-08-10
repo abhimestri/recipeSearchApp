@@ -9,16 +9,16 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case actionType.RECEPIENAME_UPDATED: return {
+        case actionType.UPDATE_NEW_SEARCHED_RECIPE: return {
             ...state,
             inputSearchedRecipe: action.recipeName
         }
-        case actionType.EACHRECIPE_DETAILS:
+        case actionType.UPDATE_SEARCHED_RECIPE_DETAILS:
             return {
                 ...state,
                 eachRecipe: action.recipeData
             }
-        case actionType.ADDTOFAVORITES:
+        case actionType.UPDATE_FAVORITES_LIST:
             return {
                 ...state,
                 favList: state.favList.concat(action.favoritesListArray)

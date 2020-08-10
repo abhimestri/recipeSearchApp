@@ -6,44 +6,44 @@ import './EachPostPage.css'
 
 import { connect } from 'react-redux'
 
-class EachPageResult extends Component{
+class EachPageResult extends Component {
 
     state = {
-        className : "fa fa-heart favoriteIconHeart",
-        addedToFavorite : false,
-        recipeDetails : null
+        className: "fa fa-heart favoriteIconHeart",
+        addedToFavorite: false,
+        recipeDetails: null
     }
-    
+
     addToFavorites = (DataOfFav) => {
         console.log("vlivked")
         this.props.onAdditionToFavorite(DataOfFav)
     }
 
-    
-    render(){
-        var recipeDetail = {...this.props.eachRecipeDetail}
 
-        var digestFromData = Object.entries({...recipeDetail.digest}).map(eachAttribute => {
-            return <li key={Math.random()+Math.random() + eachAttribute[1].label}>
-                        {eachAttribute[1].label} : {eachAttribute[1].total.toFixed(2)} {eachAttribute[1].unit} 
+    render() {
+        var recipeDetail = { ...this.props.eachRecipeDetail }
+
+        var digestFromData = Object.entries({ ...recipeDetail.digest }).map(eachAttribute => {
+            return <li key={Math.random() + Math.random() + eachAttribute[1].label}>
+                {eachAttribute[1].label} : {eachAttribute[1].total.toFixed(2)} {eachAttribute[1].unit}
+            </li>
+        })
+
+        const ingredients = Object.entries({ ...recipeDetail.ingredients }).map(ingredient => {
+            return <li key={Math.random() * Math.random()} >
+                {ingredient[1].text} : {ingredient[1].weight.toFixed(2)} g
                     </li>
         })
 
-        const ingredients = Object.entries({...recipeDetail.ingredients}).map(ingredient => {
-            return  <li key={Math.random()*Math.random()} >
-                        {ingredient[1].text} : {ingredient[1].weight.toFixed(2)} g
-                    </li>
-        })
-        
 
-        
+
         console.log("running : eachPostPage")
 
         return (
             <div className="Container">
                 <div className="leftSideContent">
                     <p className="TitleForEachRecipe" >name : {recipeDetail.label}</p>
-                    <img src={recipeDetail.image} alt="" className="Img"/>
+                    <img src={recipeDetail.image} alt="" className="Img" />
                     <p className="IngredientsTitle" >Ingredients to be used : </p>
                     <ul className="ulSectionForEachRecipeIng">
                         {ingredients}
@@ -72,14 +72,14 @@ class EachPageResult extends Component{
 
 const mapStateToProps = state => {
     return {
-        eachRecipeDetail : state.eachRecipe,
+        eachRecipeDetail: state.eachRecipe,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAdditionToFavorite : (name) => dispatch({type :actionType.ADDTOFAVORITES , favoritesListArray : name })
+        onAdditionToFavorite: (name) => dispatch({ type: actionType.UPDATE_FAVORITES_LIST, favoritesListArray: name })
     }
 }
 
-export default connect(mapStateToProps , mapDispatchToProps)(withRouter(EachPageResult))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EachPageResult))

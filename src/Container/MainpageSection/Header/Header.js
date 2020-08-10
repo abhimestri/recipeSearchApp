@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Header.css'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actionTypes from '../../../Store/actions/actionTypes'
 
@@ -8,11 +8,11 @@ import * as actionTypes from '../../../Store/actions/actionTypes'
 class Header extends Component {
 
     state = {
-        recipeNAME : null
+        recipeNAME: null
     }
 
-    Changed =  (e) =>{
-        this.setState({recipeNAME : e.target.value})
+    Changed = (e) => {
+        this.setState({ recipeNAME: e.target.value })
     }
 
     recipeValue = () => {
@@ -20,21 +20,21 @@ class Header extends Component {
         // console.log(this.props.searchedRecepie)
     }
 
-    render(){
+    render() {
         return (
             <div className="HeaderSection">
                 <div className="ContentSection">
-                        <h1 className="Title">Foodz</h1>
-                        <p className="titleDescription" >search your favorite food</p>
-                        <div className="inputBlock">
-                            <input className="inputInContentSec" onChange={(e) => this.Changed(e)} placeholder="Search your recepie..." type="text"   />
-                            <Link to="/result" exact>
-                                <div className="iconBlock" onClick={this.recipeValue} >
-                                    <ion-icon  className="searchIcon" name="search-outline"></ion-icon>
-                                </div>
-                            </Link>
-                        </div>
-                    </div> 
+                    <h1 className="Title">Foodz</h1>
+                    <p className="titleDescription" >search your favorite food</p>
+                    <div className="inputBlock">
+                        <input className="inputInContentSec" onChange={(e) => this.Changed(e)} placeholder="Search your recepie..." type="text" />
+                        <Link to="/result" exact>
+                            <div className="iconBlock" onClick={this.recipeValue} >
+                                <ion-icon className="searchIcon" name="search-outline"></ion-icon>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
                 <div className="colorOverlay"></div>
             </div>
         )
@@ -44,16 +44,16 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        searchedRecepie : state.inputSearchedRecipe
+        searchedRecepie: state.inputSearchedRecipe
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRecipeNameChanged : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        onRecipeNameChanged: (nameOfRecipe) => dispatch({ type: actionTypes.UPDATE_NEW_SEARCHED_RECIPE, recipeName: nameOfRecipe })
     }
 }
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

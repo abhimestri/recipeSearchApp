@@ -41,7 +41,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return  { 
-        selectedRecepie : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        selectedRecepie : (nameOfRecipe) => dispatch({type :actionTypes.UPDATE_NEW_SEARCHED_RECIPE , recipeName : nameOfRecipe })
     }
 }
 

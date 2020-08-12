@@ -27,7 +27,6 @@ class ResultPage extends Component {
     // }
 
     eachRecipeHandler = (dataOfRecipe) =>{
-        //  alert(name + cal)
         this.props.history.push('/result/eachPost')
          this.props.setEachRecipeContent(dataOfRecipe)
     } 

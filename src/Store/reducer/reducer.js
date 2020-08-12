@@ -1,7 +1,8 @@
 import * as actionType from '../actions/actionTypes'
 
 const initialState = {
-    aray : [],
+    favoriteList : [],
+    favpriteItem : null,
     inputSearchedRecipe : null,
     eachRecipe : null
 }
@@ -10,6 +11,7 @@ const reducer = (state = initialState, action) => {
 
     switch(action.type){
         case actionType.RECEPIENAME_UPDATED : return {
+            ...state,
             inputSearchedRecipe : action.recipeName
         }
         case actionType.EACHRECIPE_DETAILS : 
@@ -20,8 +22,9 @@ const reducer = (state = initialState, action) => {
         case actionType.ADDTOFAVORITES :
                 let ONG = action.favoritesListArray
                 return {
-                    ...initialState,
-                    aray : initialState.aray.concat(ONG)
+                    ...state,
+                    favoriteList : state.favoriteList.filter(el => el.id !== ONG.id).concat(ONG),
+                    favoriteItem : ONG
                 }
             
         default : return state

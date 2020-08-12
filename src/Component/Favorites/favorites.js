@@ -2,30 +2,46 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
+import EachRecipe from '../Result/EachResult/EachResult'
+import '../Result/EachResult/EachResult.css'
+import './favorites.css'
+
+import * as actionTypes from '../../Store/actions/actionTypes'
+
 class Favorites extends Component {
 
     state = {
-        FavoritesList : [],
-        loaded : false
+        loaded : true,
+        length : 0
     }
 
-    Data = () => {
-        console.log('in data')
-    }
+    eachRecipeHandler = (dataOfRecipe) =>{
+        this.props.history.push('/result/eachPost')
+         this.props.setEachRecipeContent(dataOfRecipe)
+    } 
 
-    show = (data) => {
-        console.log('in state')
-        console.log(this.props.ASDF)
-    }
 
     render(){
 
-        console.log("running : Favorites")
+        let ListOfFavorites = [...this.props.FavoritesLists]
+
+        console.log(ListOfFavorites)
+
+        const result = ListOfFavorites.map(fav => {
+            return (
+                <EachRecipe 
+                    clicked = {() => this.eachRecipeHandler(fav.favoriteData)}
+                    recipeName = {fav.favoriteData.recepieName}
+                    image = {fav.favoriteData.image}
+                    ingredients = {fav.favoriteData.ingredients}
+                    calories = {fav.favoriteData.calories}  
+                />
+            )
+        })
+
         return (
-            <div>
-                <h1>favorites</h1>
-                <button onClick={this.Data}>click</button>
-                <button onClick = {this.show}>submit</button>
+            <div className="ResultPage">
+                {result}
             </div>
         )
     }
@@ -33,8 +49,15 @@ class Favorites extends Component {
 
 const mapStateToProps = state => {
     return {
-        ASDF : state.aray,
+        FavoritesLists : state.favoriteList,
+        favoriteItem : state.favoriteItem
     }
 }
 
-export default connect(mapStateToProps)(Favorites)
+const mapDispatchToProps = dispatch => {
+    return {
+        setEachRecipeContent : eachRecipeData => dispatch({type :actionTypes.EACHRECIPE_DETAILS , recipeData : eachRecipeData })
+    }
+}
+
+export default connect(mapStateToProps , mapDispatchToProps)(Favorites)

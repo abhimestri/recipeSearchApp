@@ -35,7 +35,14 @@
     color: red;
     transition: all ease-in-out 0.27s;
 }
-
+.ADDED{
+    position: relative;
+    left: 50vh;
+    font-size: 25px;
+    cursor: pointer;
+    color: red;
+    transition: all ease-in-out 0.27s;
+}
 .innerRightSideContent{
     height: 80vh;
     position: relative;

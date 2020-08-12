@@ -6,6 +6,8 @@ import './EachPostPage.css'
 
 import { connect } from 'react-redux'
 
+
+
 class EachPageResult extends Component{
 
     state = {
@@ -15,10 +17,34 @@ class EachPageResult extends Component{
     }
     
     addToFavorites = (DataOfFav) => {
-        console.log("vlivked")
-        this.props.onAdditionToFavorite(DataOfFav)
+        // if(this.state.className === "fa fa-heart favoriteIconHeart"){
+            this.setState({
+                className : "fa fa-heart favoriteIconHeartActive"
+            })
+            alert("added to favorites")
+            const DATA = {
+                favoriteData : {...DataOfFav},
+                favorited : true,
+                id : DataOfFav.label
+            }
+            this.props.onAdditionToFavorite(DATA)            
+        // }else{
+        //     alert("removed from favorite")
+        //     this.setState({className : "fa fa-heart favoriteIconHeart"})
+        // }
     }
 
+    settingStateActive = () => {
+        this.setState({
+            className : "fa fa-heart favoriteIconHeartActive"
+        })
+    }
+
+    settingStateInative = () => {
+        this.setState({
+            className : "fa fa-heart favoriteIconHeart"
+        })
+    }
     
     render(){
         var recipeDetail = {...this.props.eachRecipeDetail}
@@ -35,9 +61,16 @@ class EachPageResult extends Component{
                     </li>
         })
         
-
-        
-        console.log("running : eachPostPage")
+        // console.log("running : eachPostPage")
+        if(this.props.favoriteList.lenght !== 0){
+            this.props.favoriteList.map(ele => {
+                if(ele.favoriteData.recepieName === recipeDetail.label){
+                    this.settingStateActive()
+                }
+            })
+        }else{
+            this.settingStateInative()
+        }
 
         return (
             <div className="Container">
@@ -73,6 +106,7 @@ class EachPageResult extends Component{
 const mapStateToProps = state => {
     return {
         eachRecipeDetail : state.eachRecipe,
+        favoriteList : state.favoriteList
     }
 }
 

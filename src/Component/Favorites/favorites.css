@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+.ResultPage{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 90%;
+    position: relative;
+    left: 3%;
+}

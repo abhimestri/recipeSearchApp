@@ -31,7 +31,7 @@ class Favorites extends Component {
             return (
                 <EachRecipe 
                     clicked = {() => this.eachRecipeHandler(fav.favoriteData)}
-                    recipeName = {fav.favoriteData.recepieName}
+                    recipeName = {fav.favoriteData.label}
                     image = {fav.favoriteData.image}
                     ingredients = {fav.favoriteData.ingredients}
                     calories = {fav.favoriteData.calories}  

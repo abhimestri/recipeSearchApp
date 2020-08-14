@@ -5,9 +5,6 @@ import * as actionType from '../../Store/actions/actionTypes'
 import './EachPostPage.css'
 
 import { connect } from 'react-redux'
-
-
-
 class EachPageResult extends Component{
 
     state = {
@@ -17,33 +14,14 @@ class EachPageResult extends Component{
     }
     
     addToFavorites = (DataOfFav) => {
-        // if(this.state.className === "fa fa-heart favoriteIconHeart"){
-            this.setState({
-                className : "fa fa-heart favoriteIconHeartActive"
-            })
-            alert("added to favorites")
+
+            this.setState({className : "fa fa-heart favoriteIconHeartActive"})
             const DATA = {
                 favoriteData : {...DataOfFav},
                 favorited : true,
                 id : DataOfFav.label
             }
-            this.props.onAdditionToFavorite(DATA)            
-        // }else{
-        //     alert("removed from favorite")
-        //     this.setState({className : "fa fa-heart favoriteIconHeart"})
-        // }
-    }
-
-    settingStateActive = () => {
-        this.setState({
-            className : "fa fa-heart favoriteIconHeartActive"
-        })
-    }
-
-    settingStateInative = () => {
-        this.setState({
-            className : "fa fa-heart favoriteIconHeart"
-        })
+            this.props.onAdditionToFavorite(DATA)
     }
     
     render(){
@@ -60,17 +38,7 @@ class EachPageResult extends Component{
                         {ingredient[1].text} : {ingredient[1].weight.toFixed(2)} g
                     </li>
         })
-        
-        // console.log("running : eachPostPage")
-        if(this.props.favoriteList.lenght !== 0){
-            this.props.favoriteList.map(ele => {
-                if(ele.favoriteData.recepieName === recipeDetail.label){
-                    this.settingStateActive()
-                }
-            })
-        }else{
-            this.settingStateInative()
-        }
+
 
         return (
             <div className="Container">
@@ -87,7 +55,7 @@ class EachPageResult extends Component{
                     </ul>
                 </div>
                 <div className="rightSideContent">
-                    <i className={this.state.className} onClick={() => this.addToFavorites(recipeDetail)} aria-hidden="true"></i>
+                    <i className={this.props.favorited ? this.props.className : this.state.className } onClick={() => this.addToFavorites(recipeDetail)} aria-hidden="true"></i>
                     <div className="innerRightSideContent">
                         <p className="CaloriesCount" > calories :  {Math.floor(recipeDetail.calories)} kcal</p>
                         <p className="totalWeightCount" > total weight: {Math.floor(recipeDetail.totalWeight)} g</p>
@@ -105,8 +73,7 @@ class EachPageResult extends Component{
 
 const mapStateToProps = state => {
     return {
-        eachRecipeDetail : state.eachRecipe,
-        favoriteList : state.favoriteList
+        eachRecipeDetail : state.eachRecipe
     }
 }
 

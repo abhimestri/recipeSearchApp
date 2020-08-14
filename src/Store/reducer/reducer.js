@@ -4,7 +4,8 @@ const initialState = {
     favoriteList : [],
     favpriteItem : null,
     inputSearchedRecipe : null,
-    eachRecipe : null
+    eachRecipe : null,
+    backdrop : false
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,7 +27,11 @@ const reducer = (state = initialState, action) => {
                     favoriteList : state.favoriteList.filter(el => el.id !== ONG.id).concat(ONG),
                     favoriteItem : ONG
                 }
-            
+        case actionType.BACKDROP_HANDLING : 
+                return {
+                    ...state,
+                    backdrop : action.Backdrop
+                }
         default : return state
     }
 }

@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Navbar from './Component/Navbar/Navbar'
+import { connect } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar/>
-    </div>
-  );
+class App extends Component{
+  render(){
+    return (
+      <div className="App">
+        {this.props.backdrop ? <div className="backdrop"></div> : null}
+        <Navbar/>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    backdrop : state.backdrop,
+  }
+}
+
+export default connect(mapStateToProps)(App);

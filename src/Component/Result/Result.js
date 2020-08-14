@@ -13,7 +13,6 @@ class ResultPage extends Component {
         data : []
     }
 
-    // componentDid(){
     data = () => {
         axios.get(`https://api.edamam.com/search?q=${this.props.searchedRecipeName}&app_id=937d325f&app_key=ba1746589072fe4a4a40fca5d091b43d`)
             .then(res => {
@@ -24,11 +23,10 @@ class ResultPage extends Component {
             })
             .catch(err => console.log(err))
         } 
-    // }
 
     eachRecipeHandler = (dataOfRecipe) =>{
+        this.props.setEachRecipeContent(dataOfRecipe)
         this.props.history.push('/result/eachPost')
-         this.props.setEachRecipeContent(dataOfRecipe)
     } 
 
     
@@ -52,6 +50,7 @@ class ResultPage extends Component {
             Data.push(dataSet)
         })
 
+
         let result;
         if(this.props.searchedRecipeName === null ){
             result = <p className="errorThrow" >Please enter your recipe name</p>
@@ -64,18 +63,17 @@ class ResultPage extends Component {
                         image = {recipe.image}
                         ingredients = {recipe.ingredients}
                         calories = {recipe.calories}
-                        
+                        favorited = {true}
                     />
                     
                 )
             })
         }
-        // console.log(Data)
+        
         return (
 
             <div className="ResultPage">
                 {result}
-                {/* <h1>Result</h1> */}
             </div>
         )
     }
@@ -85,12 +83,14 @@ class ResultPage extends Component {
 const mapStateToProps = state => {
     return {
         searchedRecipeName : state.inputSearchedRecipe,
+        eachRecipeDetail : state.eachRecipe,
+        favoriteList : state.favoriteList
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setEachRecipeContent : eachRecipeData => dispatch({type :actionTypes.EACHRECIPE_DETAILS , recipeData : eachRecipeData })
+        setEachRecipeContent : (eachRecipeData , isFavorited)  => dispatch({type :actionTypes.EACHRECIPE_DETAILS , recipeData : eachRecipeData , favorites : isFavorited })
     }
 }
 

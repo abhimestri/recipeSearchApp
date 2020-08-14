@@ -1,5 +1,188 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+.authModalClose{
+    width: 60vh;
+    height: 70vh;
+    position: absolute;
+    left: 35%;
+    top: -55vh;
+    border: 1px solid #ccc;
+    border-radius: 5px ;
+    animation: modalAnimationClose 0.4s ease-in-out forwards;
+    z-index: 3;
+    background-color: #fff;
+}
+.authModalOpen{
+    width: 60vh;
+    height: 70vh;
+    position: absolute;
+    left: 35%;
+    top: 15vh;
+    border: 1px solid #ccc;
+    border-radius: 5px ;
+    z-index: 3;
+    background-color: #fff;
+    animation: modalAnimation 0.3s ease-in-out forwards;
+}
+
+@keyframes modalAnimation {
+    0% {
+        margin-top: -22%;
+    }
+    50% {
+        margin-top: 2%;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes modalAnimationClose {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -85vh;
+    }
+}
+
+
+
+.googleAuthModal{
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%,-50%);
+}
+.InputBlockAuth{
+    position: relative;
+    top: 0;
+}
+.headerSectionAuthModal{
+    display: flex;
+    width: 400px;
+    height: 30px;
+}
+.registrationTitleAuthModal{
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 20px 0 0 20px;
+    color: rgb(90, 89, 89);
+}
+.modalCloseIcon{
+    font-size: 20px;
+    position: relative;
+    left: 65%;
+    top: 40%;
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+}
+.modalCloseIconSignUp{
+    font-size: 20px;
+    position: relative;
+    left: 69%;
+    top: 40%;
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+}
+.emailInputModal{
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 0 0 0 20px;
+    font-size: 17px;
+    border-color: none;
+    outline: none;
+    margin: 50px 0 0 26px;
+    border: 1px solid #ccc;
+}
+.passwordInputModal{
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 0 0 0 20px;
+    font-size: 17px;
+    border-color: none;
+    outline: none;
+    margin: 20px 0 0 26px;
+    border: 1px solid #ccc;
+}
+.SignupModal{
+    width: 380px;
+    height: 42px;
+    font-size: 20px;
+    background-color: rgb(243, 94, 94);
+    border-radius: 7px;
+    margin: 20px 0 0 20px;
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.SignupModal:hover{
+    background-color: rgb(243, 71, 71);
+}
+
+.orOptionLabel{
+    position: relative;
+    width: 380px;
+    height: 10px;
+    margin: 20px 0 0 23px;
+    display: flex;
+}
+.orOptionTitle{
+    position:relative;
+    margin: 0 10px 0 10px;
+    font-family: 'Raleway', sans-serif;
+}
+.orOptionLabel > div{
+    position: relative;
+    background-color: rgb(163, 160, 160);
+    width: 170px;
+    height: 1px;
+    margin: 10px 0 0 0;
+}
+.SignIn{
+    position: relative;
+    top: 20vh;
+    left: 11vh;
+    font-size: 17px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: rgb(100, 98, 98);
+}
+.SignInBtn{
+    margin: 0 0 0 4px;
+    font-size: 17px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: rgb(243, 94, 94);
+    cursor: pointer;
+}
+
+.SignUP{
+    display: none;
+}
+.SignUP-Active{
+    display: block;
+}
+
+.SignIN{
+    display: none;
+}
+.SignIN-Active{
+    display: block;
+}
+
+
+
 .NavbarRoutes{
     position: absolute;
     top: 0;
@@ -21,9 +204,10 @@
 }
 .Li-item{
     text-decoration: none;
-    color: #000;
+    color: rgb(170, 167, 167);
     transition: ease-out 0.3s;
+    font-weight: 500;
 }
 .Li-item:hover{
-    color: #ccc;
+    color: rgb(5, 5, 5);
 }

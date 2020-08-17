@@ -16,7 +16,7 @@ class App extends Component{
 
 const mapStateToProps = state => {
   return {
-    backdrop : state.backdrop,
+    backdrop : state.uiState.backdrop,
   }
 }
 

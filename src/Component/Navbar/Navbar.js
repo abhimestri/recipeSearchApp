@@ -5,36 +5,17 @@ import Mainpage from '../MainPage/Mainpage'
 import Result from '../Result/Result'
 import EachRecipeDetail from '../EachPostPage/EachPostPage'
 import Favorites from '../Favorites/favorites'
-import firebase from 'firebase'
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
-import * as actionTypes from '../../Store/actions/actionTypes'
-
+import * as actionCreators from '../../Store/actions/uiActions'
 import { connect } from 'react-redux'
+import Auth from '../../Container/Auth/Auth'
 
 class Header extends Component{
-    state={
+    state = {
         classNameSignUp : "SignUP-Active",
         classNameSignIn : "SignIN",
         isSignedIn : false,
         classNameForAuthModal : "authModalClose"
     }
-      
-    uiConfig = {
-        signInFlow: "popup",
-        signInOptions: [
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        ],
-        callbacks: {
-          signInSuccess: () => false
-        }
-      }
-    
-      componentDidMount = () => {
-        firebase.auth().onAuthStateChanged(user => {
-          this.setState({ isSignedIn: !!user })
-          console.log("user", user)
-        })
-      }
 
     signInHandler = () => {
         this.setState({
@@ -84,12 +65,9 @@ class Header extends Component{
                                 <div></div>
                             </div>
                             <p className="SignIn">already have an account ? <span onClick={this.signInHandler} className="SignInBtn">SIGN IN</span></p>
-                        </div>
-                        <div className="googleAuthModal">
-                            <StyledFirebaseAuth
-                                    uiConfig={this.uiConfig}
-                                    firebaseAuth={firebase.auth()}
-                                />
+                            <div className="googleAuthModal">
+                                <Auth/>
+                            </div>
                         </div>
                     </div>
                     <div className={this.state.classNameSignIn}>
@@ -129,7 +107,7 @@ class Header extends Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        setBackdrop : backdrop => dispatch({type :actionTypes.BACKDROP_HANDLING , Backdrop : backdrop  })
+        setBackdrop : backdrop => dispatch(actionCreators.backdropHandling(backdrop))
     }
 }
 

@@ -3,7 +3,7 @@ import './PopularOnes.css'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Component } from 'react'
-import * as actionTypes from '../../../../../Store/actions/actionTypes'
+import * as actionCreators from '../../../../../Store/actions/recipeUpdates'
 
 class PopularItems extends Component {
 
@@ -53,7 +53,7 @@ class PopularItems extends Component {
 
 const mapDispatchToProps =  dispatch =>  {
     return {
-        recipeNameUpdate : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        recipeNameUpdate : (nameOfRecipe) => dispatch(actionCreators.recipeNameUpdated(nameOfRecipe))
     }
 }
 

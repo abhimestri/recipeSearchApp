@@ -9,7 +9,6 @@ import Footer from '../../Container/MainpageSection/Footer/Footer'
 
 class Mainpage extends Component {
     render(){
-        console.log("running : mainpage")
         return (
             <div>
                 <Mainpageheader/>

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './Register.css'
 import Auth from '../../../../Auth/Auth'
 
-
 class Registration extends Component{
 
     render(){

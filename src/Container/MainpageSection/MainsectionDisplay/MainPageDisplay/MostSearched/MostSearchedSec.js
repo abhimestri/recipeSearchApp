@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './MostSearchedSec.css'
 import { connect } from 'react-redux'
 import  { withRouter } from 'react-router-dom'
-import * as actionTypes from '../../../../../Store/actions/actionTypes'
+import * as actionCreators from '../../../../../Store/actions/recipeUpdates'
 
 class MostSearched extends Component{
 
@@ -44,7 +44,7 @@ class MostSearched extends Component{
                     <li onClick={ () => this.changeRecipeName('fried rice')}>Fried Rice</li>
                     <li onClick={ () => this.changeRecipeName('schezwan chicken')}>Schezwan chicken</li>
                     <li onClick={ () => this.changeRecipeName('schezwan rice')}>Schezwan Rice</li>
-                    <li onClick={ () => this.changeRecipeName('manchuriyan')}>Manchuriyan</li>
+                    <li onClick={ () => this.changeRecipeName('paasta')}>Paasta</li>
                 </ul>
             </div>
         </div>
@@ -54,7 +54,7 @@ class MostSearched extends Component{
 
 const mapDispatchToProps = dispatch => {
     return { 
-        updateRecipe : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        updateRecipe : (nameOfRecipe) => dispatch(actionCreators.recipeNameUpdated(nameOfRecipe))
     }
 }
 

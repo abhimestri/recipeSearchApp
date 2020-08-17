@@ -41,10 +41,13 @@
 
 @keyframes modalAnimationClose {
     0% {
-        top: 0;
+        top: 10vh;
+    }
+    50%{
+        top: 15vh;
     }
     100% {
-        top: -85vh;
+        top: -75vh;
     }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './DesignCard.css'
 import {  withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actionTypes from '../../../../../Store/actions/actionTypes'
+import * as actionCreators from '../../../../../Store/actions/recipeUpdates'
 
 
 class FoodItemCard extends Component{
@@ -35,13 +35,13 @@ class FoodItemCard extends Component{
 
 const mapStateToProps = state => {
     return {
-        recepieSelected : state.inputSearchedRecipe
+        recepieSelected : state.recipe.inputSearchedRecipe
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return  { 
-        selectedRecepie : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        selectedRecepie : (nameOfRecipe) => dispatch(actionCreators.recipeNameUpdated(nameOfRecipe))
     }
 }
 

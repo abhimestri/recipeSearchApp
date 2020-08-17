@@ -4,12 +4,32 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom'
+import thunk from 'redux-thunk'
 
-import reducer from './Store/reducer/reducer'
-import {createStore} from 'redux'
+import recipeReducer from './Store/Reducers/recipeUpdates'
+import uiReducer from './Store/Reducers/uiActions'
+import {createStore , combineReducers , applyMiddleware , compose} from 'redux'
 import { Provider } from 'react-redux'
 
-const store = createStore(reducer)
+const rootReducer = combineReducers({
+  recipe : recipeReducer,
+  uiState : uiReducer
+})
+
+const logger  = store => {
+  return next => {
+    return action => {
+      console.log("[Middleware] : dispatching" , action)
+      const result  = next(action)
+      console.log("[Middleware] next state " , store.getState())
+      return result
+    }
+  }
+}
+
+const composeEnahancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(rootReducer , composeEnahancers(applyMiddleware(logger , thunk)))
 
 ReactDOM.render(
     <Provider store={store} >

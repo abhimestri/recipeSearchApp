@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 import EachRecipe from '../Result/EachResult/EachResult'
 import '../Result/EachResult/EachResult.css'
 import './favorites.css'
-
-import * as actionTypes from '../../Store/actions/actionTypes'
+import * as actionCreators from '../../Store/actions/recipeUpdates'
 
 class Favorites extends Component {
 
@@ -49,14 +48,14 @@ class Favorites extends Component {
 
 const mapStateToProps = state => {
     return {
-        FavoritesLists : state.favoriteList,
-        favoriteItem : state.favoriteItem
+        FavoritesLists : state.recipe.favoriteList,
+        favoriteItem : state.recipe.favoriteItem
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setEachRecipeContent : eachRecipeData => dispatch({type :actionTypes.EACHRECIPE_DETAILS , recipeData : eachRecipeData })
+        setEachRecipeContent : eachRecipeData => dispatch(actionCreators.eachRecipeDetails(eachRecipeData))
     }
 }
 

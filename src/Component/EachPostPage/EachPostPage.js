@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import * as actionType from '../../Store/actions/actionTypes'
-
+import * as actionCreators from '../../Store/actions/recipeUpdates'
 import './EachPostPage.css'
 
 import { connect } from 'react-redux'
@@ -73,13 +72,13 @@ class EachPageResult extends Component{
 
 const mapStateToProps = state => {
     return {
-        eachRecipeDetail : state.eachRecipe
+        eachRecipeDetail : state.recipe.eachRecipe
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAdditionToFavorite : (name) => dispatch({type :actionType.ADDTOFAVORITES , favoritesListArray : name })
+        onAdditionToFavorite : (name) => dispatch(actionCreators.addToFavorites(name))
     }
 }
 

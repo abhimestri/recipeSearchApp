@@ -4,7 +4,7 @@ import axios from 'axios'
 import EachRecipe from './EachResult/EachResult'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actionTypes from '../../Store/actions/actionTypes'
+import * as actionCreators from '../../Store/actions/recipeUpdates'
 
 class ResultPage extends Component {
 
@@ -82,15 +82,15 @@ class ResultPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        searchedRecipeName : state.inputSearchedRecipe,
-        eachRecipeDetail : state.eachRecipe,
-        favoriteList : state.favoriteList
+        searchedRecipeName : state.recipe.inputSearchedRecipe,
+        eachRecipeDetail : state.recipe.eachRecipe,
+        favoriteList : state.recipe.favoriteList
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setEachRecipeContent : (eachRecipeData , isFavorited)  => dispatch({type :actionTypes.EACHRECIPE_DETAILS , recipeData : eachRecipeData , favorites : isFavorited })
+        setEachRecipeContent : (eachRecipeData)  => dispatch(actionCreators.eachRecipeDetails(eachRecipeData))
     }
 }
 

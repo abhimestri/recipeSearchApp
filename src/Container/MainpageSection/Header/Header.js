@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Header.css'
 import {Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actionTypes from '../../../Store/actions/actionTypes'
+import * as actionCreators from '../../../Store/actions/recipeUpdates'
 
 
 class Header extends Component {
@@ -44,13 +44,13 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        searchedRecepie : state.inputSearchedRecipe
+        searchedRecepie : state.recipe.inputSearchedRecipe
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRecipeNameChanged : (nameOfRecipe) => dispatch({type :actionTypes.RECEPIENAME_UPDATED , recipeName : nameOfRecipe })
+        onRecipeNameChanged : (nameOfRecipe) => dispatch(actionCreators.recipeNameUpdated(nameOfRecipe))
     }
 }
 

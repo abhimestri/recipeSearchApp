@@ -8,12 +8,14 @@ import thunk from 'redux-thunk'
 
 import recipeReducer from './Store/Reducers/recipeUpdates'
 import uiReducer from './Store/Reducers/uiActions'
+import authReducer from './Store/Reducers/auth'
 import {createStore , combineReducers , applyMiddleware , compose} from 'redux'
 import { Provider } from 'react-redux'
 
 const rootReducer = combineReducers({
   recipe : recipeReducer,
-  uiState : uiReducer
+  uiState : uiReducer,
+  auth : authReducer
 })
 
 const logger  = store => {

@@ -7,10 +7,9 @@
     height: 70vh;
     position: absolute;
     left: 35%;
-    top: -55vh;
+    top: -75vh;
     border: 1px solid #ccc;
     border-radius: 5px ;
-    animation: modalAnimationClose 0.4s ease-in-out forwards;
     z-index: 3;
     background-color: #fff;
 }
@@ -36,18 +35,6 @@
     }
     100% {
         margin-top: 0;
-    }
-}
-
-@keyframes modalAnimationClose {
-    0% {
-        top: 10vh;
-    }
-    50%{
-        top: 15vh;
-    }
-    100% {
-        top: -75vh;
     }
 }
 
@@ -213,4 +200,46 @@
 }
 .Li-item:hover{
     color: rgb(5, 5, 5);
+}
+
+
+
+.messageBlock{
+    width: 50vh;
+    height: 20vh;
+    margin: 10% 0 0 7%;
+}
+.signedInMsg{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+.authUserName{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+}
+.modalCloseIconAuthinticated{
+    position: relative;
+    top: 2vh;
+    left: 93%;
+    cursor: pointer;
+    color: rgb(78, 78, 78);
+}
+.signOutBtn{
+    width: 380px;
+    height: 42px;
+    font-size: 20px;
+    background-color: rgb(243, 94, 94);
+    border-radius: 7px;
+    margin: 20px 0 0 20px;
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.signOutBtn:hover{
+    background-color: rgb(243, 71, 71);
 }

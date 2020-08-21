@@ -17,7 +17,6 @@ class Header extends Component {
 
     recipeValue = () => {
         this.props.onRecipeNameChanged(this.state.recipeNAME)
-        // console.log(this.props.searchedRecepie)
     }
 
     render(){

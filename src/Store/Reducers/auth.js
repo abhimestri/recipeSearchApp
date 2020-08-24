@@ -6,7 +6,8 @@ const initialState = {
     token : null,
     userId : null,
     loading : false,
-    error : null
+    error : null,
+    authModalClassName : "authModalClose"
 }
 
 const signedInStats = (state , action) => {
@@ -45,6 +46,12 @@ const authLogout = (state , action) => {
     })
 }
 
+const authModalToggle = (state , action) => {
+    return updatedObject(state , {
+        authModalClassName : action.authModalClassName
+    })
+}
+
 const reducer = (state = initialState , action) => {
     switch(action.type){
         case actionType.IS_SIGNEDIN : return signedInStats(state , action)
@@ -52,6 +59,7 @@ const reducer = (state = initialState , action) => {
         case actionType.AUTH_SUCCESS : return authSuccess(state , action)
         case actionType.AUTH_FAILED : return authFailed(state , action)
         case actionType.AUTH_LOGOUT : return authLogout(state , action)
+        case actionType.AUTH_MODAL_TOGGLE : return authModalToggle(state , action)
         default : return state
     }
 }

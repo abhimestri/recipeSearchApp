@@ -7,5 +7,7 @@ export {
     backdropHandling
 } from './uiActions'
 export {
-    auth
+    auth,
+    authCheckStatus,
+    logout
 } from './auth'

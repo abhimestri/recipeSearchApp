@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+
+
+.eachBoxEach{
+    margin: 70px 5px 10px 40px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    box-shadow: 0 0 40px #ccc;
+    width: auto;
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
+    height: 68vh;
+}
+.eachBoxEach:hover{
+    box-shadow: 0 0 30px rgb(73, 72, 72);
+}
+.TitleBoxEach{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
+.eachBoxEach > ul > li{
+    list-style: none;
+    padding-top: 4px;
+    padding-left: 10px;
+    margin:  0 0 0 10px;
+    font-family: 'Raleway', sans-serif;
+}
+.caloriesEach{
+    font-family: 'Raleway', sans-serif;
+    margin: 20px 0 30px 30px;
+}
+.eachBoxEach > img {
+    width: 100%;
+    height: 35vh;
+}
+
+
+.removeFromFavoritesBtn{
+    width: 250px;
+    height: 42px;
+    font-size: 20px;
+    background-color: rgb(243, 94, 94);
+    border-radius: 7px;
+    margin: 0px 0 7px 12px;
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.removeFromFavoritesBtn:hover{
+    background-color: rgb(243, 71, 71);
+}
+
+.viewFavoriteItem{
+    width: 250px;
+    height: 42px;
+    font-size: 20px;
+    background-color: #fff;
+    border-radius: 7px;
+    margin: 0px 0 10px 13px;
+    color: #000;
+    border-color: rgb(243, 94, 94);
+    border-width: 1px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.viewFavoriteItem:hover{
+    background-color: rgb(243, 94, 94);
+}

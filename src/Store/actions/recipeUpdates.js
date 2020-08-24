@@ -22,6 +22,27 @@ export const addToFavorites = (name) => {
     }
 }
 
+export const removeFromFavorites = () => {
+    return {
+        type : actionTypes.REMOVE_FROM_FAVORITES
+    }
+}
+
+export const removeFromFavoritesFunction = (deleteFav) => {
+    return dispatch => {
+        dispatch(removeFromFavorites())
+        axios.delete('/favorites.json' , deleteFav)
+                .then(res => {
+                    console.log(res)
+                    dispatch(addToDataBaseSuccess(res))
+                })
+                .catch(err => {
+                    console.log(err)
+                    dispatch(addToDataBaseFailed())
+                })
+    }
+}
+
 export const addToDataBaseStart = () => {
     return {
         type : actionTypes.STORETODATABASE_START

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import EachRecipe from '../Result/EachResult/EachResult'
-import '../Result/EachResult/EachResult.css'
+import EachRecipes from './EachResultFavorites/EachResultFavorites'
 import './favorites.css'
 import * as actionCreators from '../../Store/actions/recipeUpdates'
 import axios from 'axios'
@@ -16,11 +15,11 @@ class Favorites extends Component {
 
     eachRecipeHandler = (dataOfRecipe) =>{
         this.props.history.push('/result/eachPost')
-         this.props.setEachRecipeContent(dataOfRecipe)
+        this.props.setEachRecipeContent(dataOfRecipe)
     } 
 
     componentDidMount(){
-        axios.get('https://recipe-search-app-ebd5f.firebaseio.com/favorites.json')
+        axios.get('https://recipe-search-app-ebd5f.firebaseio.com/favorites.json?auth='+this.props.token)
         .then(res => {
             Object.entries(res.data).map(el => {
                 console.log(el)
@@ -35,16 +34,11 @@ class Favorites extends Component {
 
     render(){
 
-        console.log("-0-0-0-0-0-0-0-0")
-        console.log(this.state.ListOfFavorites)
-        console.log("-0-0-0-0-0-0-0-0")
-
-        // let ListOfFavorites = [...this.props.FavoritesLists]
-
         let result  = this.state.ListOfFavorites.map(fav => {
             return (
-                <EachRecipe 
+                <EachRecipes 
                     clicked = {() => this.eachRecipeHandler(fav)}
+                    fav = {fav}
                     recipeName = {fav.label}
                     image = {fav.image}
                     calories = {fav.calories}  
@@ -63,7 +57,8 @@ class Favorites extends Component {
 const mapStateToProps = state => {
     return {
         FavoritesLists : state.recipe.favoriteList,
-        favoriteItem : state.recipe.favoriteItem
+        favoriteItem : state.recipe.favoriteItem,
+        token : state.auth.token
     }
 }
 

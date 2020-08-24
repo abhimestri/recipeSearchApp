@@ -19,15 +19,13 @@ class Favorites extends Component {
     } 
 
     componentDidMount(){
-        axios.get('https://recipe-search-app-ebd5f.firebaseio.com/favorites.json?auth='+this.props.token)
+        axios.get('https://recipe-search-app-ebd5f.firebaseio.com/favorites.json?auth='+ localStorage.getItem('token') )
         .then(res => {
             Object.entries(res.data).map(el => {
-                console.log(el)
                 this.setState({
-                    ListOfFavorites : this.state.ListOfFavorites.concat(el[1])
+                    ListOfFavorites : this.state.ListOfFavorites.concat({id : el[0] , item : el[1]})
                 })
             })
-            console.log(res)
         })
     }
 
@@ -37,11 +35,11 @@ class Favorites extends Component {
         let result  = this.state.ListOfFavorites.map(fav => {
             return (
                 <EachRecipes 
-                    clicked = {() => this.eachRecipeHandler(fav)}
-                    fav = {fav}
-                    recipeName = {fav.label}
-                    image = {fav.image}
-                    calories = {fav.calories}  
+                    clicked = {() => this.eachRecipeHandler(fav.item)}
+                    fav = {fav.id}
+                    recipeName = {fav.item.label}
+                    image = {fav.item.image}
+                    calories = {fav.item.calories}  
                 />
             )
         })

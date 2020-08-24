@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import './EachResultFavorites.css'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 import * as actionCreators from '../../../Store/actions/recipeUpdates'
 
 class EachRecepie extends Component {
 
     removeFromFavorites = () => {
         this.props.removeFavItem(this.props.fav)
+        this.props.history.push('/result/eachPost')
     }
 
     render(){
@@ -24,7 +26,7 @@ class EachRecepie extends Component {
 
 const mapDispatchToProps = dispatch => {
     return { 
-        removeFavItem : item => dispatch(actionCreators.removeFromFavoritesFunction(item))
+        removeFavItem : id => dispatch(actionCreators.removeFromFavoritesFunction(id))
     }
 }
 

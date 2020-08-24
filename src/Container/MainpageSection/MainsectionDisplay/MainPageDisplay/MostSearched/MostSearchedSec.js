@@ -44,7 +44,7 @@ class MostSearched extends Component{
                     <li onClick={ () => this.changeRecipeName('fried rice')}>Fried Rice</li>
                     <li onClick={ () => this.changeRecipeName('schezwan chicken')}>Schezwan chicken</li>
                     <li onClick={ () => this.changeRecipeName('schezwan rice')}>Schezwan Rice</li>
-                    <li onClick={ () => this.changeRecipeName('paasta')}>Paasta</li>
+                    <li onClick={ () => this.changeRecipeName('italian')}>Italian</li>
                 </ul>
             </div>
         </div>

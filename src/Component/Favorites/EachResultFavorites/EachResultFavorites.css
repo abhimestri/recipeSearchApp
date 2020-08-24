@@ -9,7 +9,7 @@
     width: auto;
     cursor: pointer;
     transition: ease-in-out 0.4s;
-    height: 68vh;
+    height: 70vh;
 }
 .eachBoxEach:hover{
     box-shadow: 0 0 30px rgb(73, 72, 72);

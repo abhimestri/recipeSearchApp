@@ -2,8 +2,6 @@
 
 .mostSearchedBox{
     width: 100%;
-    /* position: absolute;
-    top: 270%; */
     position: relative;
     top: -30%;
 }
@@ -40,4 +38,27 @@
 }
 .firstBlock > li:hover{
    color: #333;
+}
+
+@media(max-width : 760px){
+    .mostSearchedBox{
+        width: 100%;
+        position: relative;
+        top: -15vh;
+    }
+    .title{
+        position: relative;
+        top: 0%;
+        font-size: 30px;
+        font-weight: 200;
+        margin: 0 0 0 1vh;
+        font-family: 'Raleway', sans-serif;
+    }
+    .mostSearchedBlockInner{
+        display: inline-block;
+        margin: 0 0 0 10% ;
+    }
+    .firstBlock > li{
+        margin-top: 2px;
+    }
 }

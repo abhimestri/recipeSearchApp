@@ -30,16 +30,14 @@ export const removeFromFavorites = () => {
 
 export const removeFromFavoritesFunction = (deleteFav) => {
     return dispatch => {
-        dispatch(removeFromFavorites())
-        axios.delete('/favorites.json' , deleteFav)
+        axios.delete(`/favorites/${deleteFav}.json`)
                 .then(res => {
                     console.log(res)
-                    dispatch(addToDataBaseSuccess(res))
                 })
                 .catch(err => {
                     console.log(err)
-                    dispatch(addToDataBaseFailed())
                 })
+        dispatch(removeFromFavorites())
     }
 }
 

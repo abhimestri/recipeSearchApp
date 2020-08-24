@@ -84,8 +84,9 @@ class Header extends Component{
 
         if(this.props.token !== null){
             result = (
-                <div>
-                    <p>you are signed in</p>
+                <div className="alreadySignedIn">
+                    <i className="fa fa-times modalCloseIconSignedIn" onClick={this.closeAuthModal} aria-hidden="true"></i>
+                    <p>you are now signed in</p>
                     <button onClick = {this.logout} >logout</button>
                 </div>
             )

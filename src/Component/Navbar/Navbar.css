@@ -248,3 +248,34 @@
 .signOutBtn:hover{
     background-color: rgb(243, 71, 71);
 }
+
+
+.modalCloseIconSignedIn{
+    position: relative;
+    left: 92%;
+    top: 2vh;
+    font-size: 20px;
+    color: rgb(100, 99, 99);
+    cursor: pointer;
+}
+.alreadySignedIn > p{
+    font-size: 21px;
+    text-align: center;
+    position: relative;
+    top: 10vh;
+}
+.alreadySignedIn > button{
+    width: 380px;
+    height: 42px;
+    font-size: 20px;
+    background-color: rgb(243, 94, 94);
+    border-radius: 7px;
+    margin: 12vh 0 0 20px;
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.alreadySignedIn > button:hover{
+    background-color: rgb(241, 69, 69);
+}

@@ -50,3 +50,23 @@
     position: relative;
     top: 65%;
 }
+
+
+@media(max-width:900px){
+    .foddItemsCards{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .eachCardForFoodItem{
+        margin-bottom: 5em;
+        height: 80%;
+    }
+}
+@media(max-width:500px){
+    .foddItemsCards{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .eachCardForFoodItem{
+        margin-bottom: 5em;
+        height: 80%;
+    }
+}

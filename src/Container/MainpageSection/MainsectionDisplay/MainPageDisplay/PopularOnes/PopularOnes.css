@@ -28,7 +28,7 @@
     grid-template-columns: repeat(4,1fr);
 }
 .eachCard{
-    width: 200px;
+    width: 90%;
     height: 100px;
     background-color: brown;
     margin: 10px;
@@ -74,4 +74,18 @@
 }
 .card8{
     background-image: url('../../../../../assets/8-block/sushi.jpg');
+}
+
+@media(max-width : 900px){
+    .popularitySection{
+        top: 26vh;
+    }
+    .row1{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .row2{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
 }

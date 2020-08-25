@@ -33,6 +33,10 @@
     font-size: 16px;
     font-family: 'Raleway', sans-serif;
     list-style: none;
+    text-decoration: none;
+}
+.NavbarUl-LiSideDrawer:hover{
+    color: rgb(5, 5, 5);
 }
 .Li-itemSideDrawer{
     text-decoration: none;

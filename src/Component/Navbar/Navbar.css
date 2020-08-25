@@ -289,6 +289,40 @@
     font-size: 30px;
     display: none;
 }
+.statusModal{
+    width: 30%;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    position: absolute;
+    box-shadow: 0 0 20px solid #333;
+    left: 35%;
+    z-index: 1;
+}
+.statusModalShow{
+    width: 30%;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 30px  rgb(80, 78, 78);
+    position: absolute;
+    left: 35%;
+    z-index: 1;
+    border: 1px solid #000;
+    animation: statusModalAnimation 0.3s ease-in-out forwards;
+}
+
+@keyframes statusModalAnimation {
+    0% {
+        margin-top: -12%;
+    }
+    100% {
+        margin-top: -3%;
+    }
+}
+
 
 @media(max-width:720px){
     .authModalOpen{

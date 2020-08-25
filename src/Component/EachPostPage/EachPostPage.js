@@ -3,15 +3,18 @@ import { withRouter } from 'react-router'
 import * as actionCreators from '../../Store/actions/recipeUpdates'
 import './EachPostPage.css'
 import axios from 'axios'
-
+import StatusModal from '../../Container/statusUpdateModal/statusUpdateModal'
 import { connect } from 'react-redux'
+import * as actionTypes from '../../Store/actions/actionTypes'
+
 class EachPageResult extends Component{
 
     state = {
         className : "fa fa-heart favoriteIconHeart",
         addedToFavorite : false,
         recipeDetails : null,
-        isPresent : false
+        isPresent : false,
+        showStatusModal : false
     }
     
     addToFavorites = (DataOfFav) => {
@@ -28,11 +31,17 @@ class EachPageResult extends Component{
                 yield : DataOfFav.yield,
                 source : DataOfFav.source
             }
-           
             axios.get("https://recipe-search-app-ebd5f.firebaseio.com/favorites.json")
                 .then(res => {
                     if(res.data === null){
-                        this.props.addToDatabase( databaseData )
+                        this.props.addToDatabase( databaseData)
+                        this.props.onChangeStausUpdateModalClass("statusModalShow")
+                        this.setState({showStatusModal : true})
+                        setTimeout(() => {
+                            this.setState({
+                                showStatusModal : false
+                            })
+                        },3000)
                     }else{
                         Object.entries(res.data).map(el => {
                             if(el[1].label === DataOfFav.label){
@@ -41,6 +50,13 @@ class EachPageResult extends Component{
                         })
                         if(this.state.isPresent === false){
                             this.props.addToDatabase( databaseData )
+                            this.props.onChangeStausUpdateModalClass("statusModalShow")
+                            this.setState({showStatusModal : true})
+                            setTimeout(() => {
+                                this.setState({
+                                    showStatusModal : false
+                                })
+                            },3000)
                         }
                     }
                 })   
@@ -60,10 +76,20 @@ class EachPageResult extends Component{
                         {ingredient[1].text} : {ingredient[1].weight.toFixed(2)} g
                     </li>
         })
-
+        let statusModal
+        if(this.state.showStatusModal){
+            statusModal = (
+                <div className={this.props.statusUpdateClassName}>
+                    <StatusModal>Item added to favorites</StatusModal>
+                </div>
+            )
+        }else{
+            statusModal= null
+        }
 
         return (
             <div className="Container">
+                {statusModal}
                 <div className="leftSideContent">
                     <p className="TitleForEachRecipe" >name : {recipeDetail.label}</p>
                     <img src={recipeDetail.image} alt="" className="Img"/>
@@ -96,14 +122,16 @@ class EachPageResult extends Component{
 const mapStateToProps = state => {
     return {
         eachRecipeDetail : state.recipe.eachRecipe,
-        favoritesList : state.recipe.favoriteList
+        favoritesList : state.recipe.favoriteList,
+        statusUpdateClassName : state.uiState.statusModal
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onAdditionToFavorite : (name) => dispatch(actionCreators.addToFavorites(name)),
-        addToDatabase : (favoritesList , presentData) => dispatch(actionCreators.addFavoritesListToDatabase(favoritesList , presentData))
+        addToDatabase : (favoritesList , presentData) => dispatch(actionCreators.addFavoritesListToDatabase(favoritesList , presentData)),
+        onChangeStausUpdateModalClass : type => dispatch({type : actionTypes.STATUSUPDATE_MODAL, StatusModal : type})
     }
 }
 

@@ -22,14 +22,14 @@
 
 .favoriteIconHeart{
     position: relative;
-    left: 50vh;
+    left: 15%;
     font-size: 25px;
     cursor: pointer;
     transition: all ease-in-out 0.27s;
 }
 .favoriteIconHeartActive{
     position: relative;
-    left: 50vh;
+    left: 15%;
     font-size: 25px;
     cursor: pointer;
     color: red;
@@ -132,4 +132,69 @@
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     margin: 25px 0 0 20px;
+}
+
+@media(max-width:440px){
+    .ulSectionForEachRecipeIng{
+        margin: 4vh 0 1vh 0vh;
+    }
+
+    .IngredientsTitle{
+        font-size: 20px;
+        margin: 25px 0 0 15px;
+    }
+
+    .ulSectionForEachRecipeIng > li {
+        font-size: 14px;
+        padding-top:7px ;
+    }
+
+    .ContentsTitle{
+        font-size: 20px;
+        margin: 25px 0 0 15px;
+    }
+
+    .ulSectionForEachRecipeContents{
+        margin: 4vh 0 1vh 0vh;
+    }
+
+    .ulSectionForEachRecipeContents > li{
+        padding-top:7px ;
+        font-size: 14px;
+    }
+
+    .CaloriesCount{
+        font-size: 17px;
+        margin: 25px 0 0 10px;
+    }
+
+    .totalWeightCount{
+        font-size: 17px;
+        margin: 15px 0 0 10px;
+    }
+    .Img{
+        height: 40%;
+    }
+    .urlSection{
+        margin: 30px 0 0 10px;
+        display: flex;
+    }
+    .linkReferenceBtn{
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        margin: 5px 0 0 10px;
+        color: #000;
+        text-decoration: none;
+        transition: all ease-in-out 0.2s;
+    }
+
+    .linkReferenceBtn:hover{
+        color: rgb(90, 88, 88);
+    }
+    .ServingDone{
+        font-family: 'Raleway', sans-serif;
+        font-size: 17px;
+        margin: 25px 0 0 10px;
+    }
+
 }

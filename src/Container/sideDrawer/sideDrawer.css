@@ -1,0 +1,63 @@
+.sideDrawer{
+    width: 30%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    transition: all ease-in-out 0.5s ;
+}
+.sideDrawerActive{
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 5;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all ease-in-out 0.5s ;
+}
+.NavbarUl-sideDrawer{
+    position: relative;
+    top: 5vh;
+    left: -5%;
+}
+
+.NavbarUl-LiSideDrawer{
+    position: relative;
+    display: block;
+    margin: 30px 0 40px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    list-style: none;
+}
+.Li-itemSideDrawer{
+    text-decoration: none;
+    color: rgb(170, 167, 167);
+    transition: ease-out 0.3s;
+    font-weight: 500;
+    z-index: -1;
+    position: relative;
+}
+.Li-itemSideDrawer:hover{
+    color: rgb(5, 5, 5);
+}
+
+.errorMessage{
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.closeSideDrawerBtn{
+    position: relative;
+    width: auto;
+    color: rgb(131, 128, 128);
+    top: 2vh;
+    left: 10%;
+    cursor: pointer;
+}

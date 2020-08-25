@@ -45,7 +45,7 @@ class Favorites extends Component {
         })
 
         return (
-            <div className="ResultPage">
+            <div className="ResultPageFavorites">
                 {result}
             </div>
         )

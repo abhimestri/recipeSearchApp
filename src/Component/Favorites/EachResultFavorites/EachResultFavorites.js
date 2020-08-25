@@ -8,7 +8,6 @@ class EachRecepie extends Component {
 
     removeFromFavorites = () => {
         this.props.removeFavItem(this.props.fav)
-        this.props.history.push('/result/eachPost')
     }
 
     render(){
@@ -30,4 +29,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null , mapDispatchToProps)(EachRecepie)
+export default connect(null , mapDispatchToProps)(withRouter(EachRecepie))

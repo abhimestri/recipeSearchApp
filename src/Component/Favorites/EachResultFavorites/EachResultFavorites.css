@@ -6,13 +6,10 @@
     box-sizing: border-box;
     border-radius: 7px;
     box-shadow: 0 0 40px #ccc;
-    width: auto;
+    width: 85%;
     cursor: pointer;
     transition: ease-in-out 0.4s;
     height: 70vh;
-}
-.eachBoxEach:hover{
-    box-shadow: 0 0 30px rgb(73, 72, 72);
 }
 .TitleBoxEach{
     font-family: 'Raleway', sans-serif;
@@ -37,12 +34,12 @@
 
 
 .removeFromFavoritesBtn{
-    width: 250px;
-    height: 42px;
-    font-size: 20px;
+    width: 70%;
+    height: 32px;
+    font-size: 17px;
     background-color: rgb(243, 94, 94);
-    border-radius: 7px;
-    margin: 0px 0 7px 12px;
+    border-radius: 6px;
+    margin: 0 0 7px 6vh;
     color: #fff;
     border-color: #fff;
     cursor: pointer;
@@ -54,17 +51,17 @@
 }
 
 .viewFavoriteItem{
-    width: 250px;
-    height: 42px;
-    font-size: 20px;
+    width: 70%;
+    height: 32px;
+    font-size: 17px;
     background-color: #fff;
-    border-radius: 7px;
-    margin: 0px 0 10px 13px;
+    border-radius: 4px;
+    margin: 0px 0 10px 6vh;
     color: #000;
     border-color: rgb(243, 94, 94);
     border-width: 1px;
     cursor: pointer;
-    transition: all ease 0.3s;
+    transition: all ease 0.7s;
 }
 .viewFavoriteItem:hover{
     background-color: rgb(243, 94, 94);

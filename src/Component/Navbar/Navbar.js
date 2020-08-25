@@ -8,6 +8,7 @@ import EachRecipeDetail from '../EachPostPage/EachPostPage'
 import Favorites from '../Favorites/favorites'
 import * as actionCreators from '../../Store/actions/index'
 import { connect } from 'react-redux'
+import SideDrawer from '../../Container/sideDrawer/sideDrawer'
 
 class Header extends Component{
 
@@ -74,6 +75,10 @@ class Header extends Component{
         this.props.logout()
     }
 
+    drawerToggeler = () => {
+        this.props.drawerToggle("sideDrawerActive")
+    }
+
     render(){
         let error = null , result;
         if(this.props.error){
@@ -127,10 +132,12 @@ class Header extends Component{
         }
         return (
             <div>
+                <SideDrawer/>
                 <div className={this.props.authModalClassName}>
                     {error}
                      {result}
                 </div>
+                <i className="fa fa-bars hamburger" onClick={this.drawerToggeler} aria-hidden="true"></i>
                 <div className="NavbarRoutes">
                     <ul className="NavbarUl">
                         <li className="NavbarUl-Li"><Link to="/" className="Li-item">Home</Link></li>
@@ -165,6 +172,7 @@ const mapDispatchToProps = dispatch => {
         onAuth : (email , password, signedInStatus) => dispatch(actionCreators.auth(email , password , signedInStatus)),
         authHandler : signedInStatus => dispatch({type : actionType.IS_SIGNEDIN , status : signedInStatus}),
         authModalToggle : type => dispatch({type : actionType.AUTH_MODAL_TOGGLE , authModalClassName : type}),
+        drawerToggle : type => dispatch({type : actionType.DRAWER_TOGGELER , DrawerShow : type }),
         logout : () => dispatch(actionCreators.logout())
     }
 }

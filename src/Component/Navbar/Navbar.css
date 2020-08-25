@@ -117,7 +117,7 @@
     cursor: pointer;
 }
 .emailInputModal{
-    width: 350px;
+    width:82%;
     height: 37px;
     border-radius: 5px;
     border-width: 1px;
@@ -129,7 +129,7 @@
     border: 1px solid #ccc;
 }
 .passwordInputModal{
-    width: 350px;
+    width: 82%;
     height: 37px;
     border-radius: 5px;
     border-width: 1px;
@@ -141,7 +141,7 @@
     border: 1px solid #ccc;
 }
 .SignupModal{
-    width: 380px;
+    width: 90%;
     height: 42px;
     font-size: 20px;
     background-color: rgb(243, 94, 94);
@@ -158,7 +158,7 @@
 
 .orOptionLabel{
     position: relative;
-    width: 380px;
+    width: 86%;
     height: 10px;
     margin: 20px 0 0 23px;
     display: flex;
@@ -265,7 +265,7 @@
     top: 10vh;
 }
 .alreadySignedIn > button{
-    width: 380px;
+    width: 90%;
     height: 42px;
     font-size: 20px;
     background-color: rgb(243, 94, 94);
@@ -278,4 +278,61 @@
 }
 .alreadySignedIn > button:hover{
     background-color: rgb(241, 69, 69);
+}
+
+.hamburger{
+    color: rgb(168, 164, 164);
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    z-index: 1;
+    font-size: 30px;
+    display: none;
+}
+
+@media(max-width:720px){
+    .authModalOpen{
+        left: 15%;
+        width: 40vh;
+    }
+    .emailInputModal{
+        margin: 50px 0 0 16px;
+    }
+    .passwordInputModal{
+        margin: 20px 0 0 16px;
+    }
+    .modalCloseIcon{
+        left: 35%;
+    }
+    .SignupModal{
+        margin: 20px 0 0 10px;
+    }
+    .SignIn{
+        left: 2vh;
+        font-size: 16px;
+        width: 300px;
+    }
+}
+@media(max-width:530px){
+    .hamburger{
+        display: block;
+    }
+    .modalCloseIcon{
+        left: 33%;
+    }
+    .modalCloseIconSignUp{
+        left: 37%;
+    }
+    .NavbarUl{
+        display: none;
+    }
+    .SignIn{
+        left: 2vh;
+        font-size: 16px;
+        width: 300px;
+    }
+    .SignInBtn{
+        margin: 0 0 0 3px;
+        font-size: 16px;
+    }
 }

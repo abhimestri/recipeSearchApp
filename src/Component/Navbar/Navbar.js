@@ -9,7 +9,6 @@ import Favorites from '../Favorites/favorites'
 import * as actionCreators from '../../Store/actions/index'
 import { connect } from 'react-redux'
 import SideDrawer from '../../Container/sideDrawer/sideDrawer'
-import StatusModal from '../../Container/statusUpdateModal/statusUpdateModal'
 
 class Header extends Component{
 
@@ -143,7 +142,7 @@ class Header extends Component{
                     <ul className="NavbarUl">
                         <li className="NavbarUl-Li"><Link to="/" className="Li-item">Home</Link></li>
                         <li className="NavbarUl-Li"><Link to="/favorites" className="Li-item" >Favorites</Link></li>
-                        <li className="NavbarUl-Li"><a href="https://developer.edamam.com/edamam-recipe-api" target="_blank" className="Li-item" >Documentation</a></li>
+                        <li className="NavbarUl-Li"><a rel="noopener noreferrer" href="https://developer.edamam.com/edamam-recipe-api" target="_blank" className="Li-item" >Documentation</a></li>
                         <li className="NavbarUl-Li"><Link  onClick={() => this.openAuthModal()} className="Li-item" > Sign Up </Link></li>
                     </ul>
                     <Route path="/" exact component={Mainpage}/>

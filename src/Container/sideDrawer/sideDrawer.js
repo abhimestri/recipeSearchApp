@@ -33,7 +33,7 @@ class Header extends Component{
                     <ul className="NavbarUl-sideDrawer">
                         <li className="NavbarUl-LiSideDrawer" onClick={this.goToHome} ><Link to="/" className="Li-itemSideDrawer">Home</Link></li>
                         <li className="NavbarUl-LiSideDrawer" onClick={this.goToFavorites} ><Link to="/favorites" className="Li-itemSideDrawer" >Favorites</Link></li>
-                        <a className="NavbarUl-LiSideDrawer" href="https://developer.edamam.com/edamam-recipe-api" target="_blank" ><Link  className="Li-itemSideDrawer" >Documentation</Link></a>
+                        <a className="NavbarUl-LiSideDrawer" href="https://developer.edamam.com/edamam-recipe-api" target="_blank" rel="noopener noreferrer" ><Link  className="Li-itemSideDrawer" >Documentation</Link></a>
                         <li className="NavbarUl-LiSideDrawer" onClick={this.openAuthModal}><Link className="Li-itemSideDrawer" > Sign Up </Link></li>
                     </ul>
                 </div>

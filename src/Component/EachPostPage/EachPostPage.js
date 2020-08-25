@@ -47,6 +47,7 @@ class EachPageResult extends Component{
                             if(el[1].label === DataOfFav.label){
                                 this.setState({isPresent : true})
                             }
+                            return null
                         })
                         if(this.state.isPresent === false){
                             this.props.addToDatabase( databaseData )

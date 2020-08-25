@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './EachResultFavorites.css'
 import {connect} from 'react-redux'
-import {withRouter , Redirect} from 'react-router'
+import {withRouter } from 'react-router'
 import * as actionCreators from '../../../Store/actions/recipeUpdates'
 import StatusModal from '../../../Container/statusUpdateModal/statusUpdateModal'
 import * as actionTypes from '../../../Store/actions/actionTypes'

@@ -25,6 +25,7 @@ class Favorites extends Component {
                 this.setState({
                     ListOfFavorites : this.state.ListOfFavorites.concat({id : el[0] , item : el[1]})
                 })
+                return null
             })
         })
     }

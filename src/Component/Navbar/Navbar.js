@@ -20,7 +20,8 @@ class Header extends Component{
         classNameForAuthModal : "authModalClose",
         email : "",
         password : null,
-        authenticatedUserName : null
+        authenticatedUserName : null,
+        loaded : false
     }
 
     signInHandler = () => {

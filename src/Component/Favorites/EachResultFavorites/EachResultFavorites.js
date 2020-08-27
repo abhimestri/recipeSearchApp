@@ -20,7 +20,7 @@ class EachRecepie extends Component {
             this.setState({
                 showStatusModal : false
             })
-        },3000)
+        },2000)
     }
 
     render(){

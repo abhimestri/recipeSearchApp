@@ -76,7 +76,7 @@ export const auth = (email , password , signedInStatus) => {
                 })
                 .catch(error => {
                     console.log(error);
-                    dispatch(authFailed(error.response.data.error))
+                    // dispatch(authFailed(error.response.data.error))
                 });
     }
 }
@@ -92,7 +92,7 @@ export const authCheckStatus = () => {
                 dispatch(logout)
             }else{
                 const userID = localStorage.getItem('userId');
-                dispatch(authSuccess(token , userID))
+                dispatch(authSuccess(localStorage.getItem('token') , userID))
                 dispatch(checkAuthTimeOut((expirationTime.getTime() - new Date().getTime()) / 100000 ))
             }
         }

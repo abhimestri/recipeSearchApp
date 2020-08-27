@@ -13,9 +13,9 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        {this.props.backdrop ? <div className="backdrop"></div> : null}
-        <Navbar/>
-      </div>
+          {this.props.backdrop ? <div className="backdrop"></div> : null}
+          <Navbar/>
+        </div>
     );
   }
 }

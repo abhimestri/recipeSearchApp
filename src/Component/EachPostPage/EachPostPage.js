@@ -41,7 +41,7 @@ class EachPageResult extends Component{
                             this.setState({
                                 showStatusModal : false
                             })
-                        },3000)
+                        },2000)
                     }else{
                         Object.entries(res.data).map(el => {
                             if(el[1].label === DataOfFav.label){
@@ -57,7 +57,7 @@ class EachPageResult extends Component{
                                 this.setState({
                                     showStatusModal : false
                                 })
-                            },3000)
+                            },2000)
                         }
                     }
                 })   

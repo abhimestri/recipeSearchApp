@@ -5,12 +5,14 @@ import EachRecipe from './EachResult/EachResult'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actionCreators from '../../Store/actions/recipeUpdates'
+import LoadingGif from '../UI/loading/loadingGif'
 
 class ResultPage extends Component {
 
     state = {
         fetched : false,
-        data : []
+        data : [],
+        loading : true
     }
 
     data = () => {
@@ -18,7 +20,8 @@ class ResultPage extends Component {
             .then(res => {
                 this.setState({
                     data : [...res.data.hits],
-                    fetched: true
+                    fetched: true,
+                    loading: false
                 })
             })
             .catch(err => console.log(err))
@@ -73,7 +76,7 @@ class ResultPage extends Component {
         return (
 
             <div className="ResultPage">
-                {result}
+                { this.state.loading ? <LoadingGif/> : result}
             </div>
         )
     }

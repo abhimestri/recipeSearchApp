@@ -288,7 +288,14 @@
     z-index: 1;
     font-size: 30px;
     display: none;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
 }
+
+.hamburger:hover{
+    color: #fff;
+}
+
 .statusModal{
     width: 30%;
     height: 50px;
@@ -307,7 +314,8 @@
     color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 30px  rgb(80, 78, 78);
-    position: absolute;
+    position: fixed;
+    top: 10%;
     left: 35%;
     z-index: 1;
     border: 1px solid #000;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Navbar.css'
 import * as actionType from '../../Store/actions/actionTypes'
-import {Route , Link } from 'react-router-dom'
+import { Switch, Route , Link } from 'react-router-dom'
 import Mainpage from '../MainPage/Mainpage'
 import Result from '../Result/Result'
 import EachRecipeDetail from '../EachPostPage/EachPostPage'
@@ -146,10 +146,12 @@ class Header extends Component{
                         <li className="NavbarUl-Li"><a rel="noopener noreferrer" href="https://developer.edamam.com/edamam-recipe-api" target="_blank" className="Li-item" >Documentation</a></li>
                         <li className="NavbarUl-Li"><Link  onClick={() => this.openAuthModal()} className="Li-item" > Sign Up </Link></li>
                     </ul>
-                    <Route path="/" exact component={Mainpage}/>
-                    <Route exact path="/favorites"  component={Favorites} />
-                    <Route exact path="/result" component={Result} />
-                    <Route exact path="/result/eachPost" component={EachRecipeDetail}/>
+                    <Switch>
+                        <Route path="/" exact component={Mainpage}/>
+                        <Route exact path="/favorites"  component={Favorites} />
+                        <Route exact path="/result" component={Result} />
+                        <Route exact path="/:name" component={EachRecipeDetail}/>
+                    </Switch>
                 </div>
             </div>
         )

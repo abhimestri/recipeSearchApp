@@ -3,6 +3,7 @@ import './Result.css'
 import axios from 'axios'
 import EachRecipe from './EachResult/EachResult'
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actionCreators from '../../Store/actions/recipeUpdates'
 import LoadingGif from '../UI/loading/loadingGif'
@@ -60,7 +61,8 @@ class ResultPage extends Component {
         }else{
             result = Data.map(recipe => {
                 return (
-                    <EachRecipe 
+                    <Link className="Li-item" key={recipe.recepieName} to={"/searched-recipe" + recipe.recepieName}>
+                        <EachRecipe 
                         clicked = {() => this.eachRecipeHandler(recipe.recipeData)}
                         recipeName = {recipe.recepieName}
                         image = {recipe.image}
@@ -68,7 +70,7 @@ class ResultPage extends Component {
                         calories = {recipe.calories}
                         favorited = {true}
                     />
-                    
+                    </Link>
                 )
             })
         }

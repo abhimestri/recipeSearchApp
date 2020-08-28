@@ -5,14 +5,17 @@ import './favorites.css'
 import * as actionCreators from '../../Store/actions/recipeUpdates'
 import axios from 'axios'
 import LoadingGif from '../UI/loading/loadingGif'
+import StatusModal from '../../Container/statusUpdateModal/statusUpdateModal'
 
+let resStatus;
 class Favorites extends Component {
 
     state = {
         loaded : true,
         length : 0,
         ListOfFavorites : [],
-        loading : true
+        loading : true,
+        showStatusModal : false
     }
 
     eachRecipeHandler = (dataOfRecipe) =>{
@@ -31,6 +34,29 @@ class Favorites extends Component {
                 })
                 return null
             })
+        })
+        .catch(err => {
+            this.setState({showStatusModal : true})
+            if(this.state.showStatusModal){
+                if(err.message === "Request failed with status code 401"){
+                    resStatus  = (
+                       <div className={this.props.statusUpdateClassName}>
+                           <StatusModal>you are not signed in!</StatusModal>
+                       </div>
+                   )
+                   }else{
+                       resStatus  = (
+                           <div className={this.props.statusUpdateClassName}>
+                               <StatusModal>{err.message}</StatusModal>
+                           </div>
+                       )
+                   }
+            }else{
+                resStatus= null
+            }
+            setTimeout(() => {
+                this.setState({showStatusModal : false})
+            },2000)
         })
     }
 
@@ -59,6 +85,7 @@ class Favorites extends Component {
 
         return (
             <div className="ResultPageFavorites">
+                {resStatus}
                 {result}
             </div>
         )
@@ -69,7 +96,8 @@ const mapStateToProps = state => {
     return {
         FavoritesLists : state.recipe.favoriteList,
         favoriteItem : state.recipe.favoriteItem,
-        token : state.auth.token
+        token : state.auth.token,
+        statusUpdateClassName : state.uiState.statusModal
     }
 }
 

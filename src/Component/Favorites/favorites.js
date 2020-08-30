@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import EachRecipes from './EachResultFavorites/EachResultFavorites'
+import { Link } from 'react-router-dom'
 import './favorites.css'
 import * as actionCreators from '../../Store/actions/recipeUpdates'
 import axios from 'axios'
@@ -19,12 +20,12 @@ class Favorites extends Component {
     }
 
     eachRecipeHandler = (dataOfRecipe) =>{
-        this.props.history.push('/result/eachPost')
+        // this.props.history.push('/result/eachPost')
         this.props.setEachRecipeContent(dataOfRecipe)
     } 
 
     componentDidMount(){
-        console.log("token" , this.props.token)
+        // console.log("token" , this.props.token)
         axios.get('https://recipe-search-app-ebd5f.firebaseio.com/favorites.json?auth='+localStorage.getItem('token'))
         .then(res => {
             Object.entries(res.data).map(el => {
@@ -72,13 +73,17 @@ class Favorites extends Component {
         }else{
             result  = this.state.ListOfFavorites.map(fav => {
                 return (
-                    <EachRecipes 
-                        clicked = {() => this.eachRecipeHandler(fav.item)}
-                        fav = {fav.id}
-                        recipeName = {fav.item.label}
-                        image = {fav.item.image}
-                        calories = {fav.item.calories}  
-                    />
+                    <Link className="Li-item" to={{
+                        pathname : "/searched-recipe" + fav.item.label,
+                        search : '?show-result=true?cal'+ fav.item.calories
+                    }} key={fav.item.label} >
+                        <EachRecipes 
+                            clicked = {() => this.eachRecipeHandler(fav.item)}
+                            recipeName = {fav.item.label}
+                            image = {fav.item.image}
+                            calories = {fav.item.calories}
+                        />
+                    </Link>
                 )
             })
         }

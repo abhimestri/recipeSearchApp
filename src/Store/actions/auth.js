@@ -57,16 +57,16 @@ export const auth = (email , password , signedInStatus) => {
 
         let url 
         if(!signedInStatus){
-            console.log("in auth actions status is : " , signedInStatus)
+            // console.log("in auth actions status is : " , signedInStatus)
             url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDURz_09aOuPrtmxDv5vgWq4_7jAeOZsiA"
         }else{
-            console.log("in auth actions status is : " , signedInStatus)
+            // console.log("in auth actions status is : " , signedInStatus)
             url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDURz_09aOuPrtmxDv5vgWq4_7jAeOZsiA"
         }
 
         axios.post(url , authData)
                 .then(response => {
-                    console.log(response)
+                    // console.log(response)
                     const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000)
                     localStorage.setItem('token' , response.data.idToken)
                     localStorage.setItem('expirationDate' , expirationDate)
@@ -75,8 +75,8 @@ export const auth = (email , password , signedInStatus) => {
                     dispatch(checkAuthTimeOut(response.data.expiresIn))
                 })
                 .catch(error => {
-                    console.log(error);
-                    // dispatch(authFailed(error.response.data.error))
+                    // console.log(error);
+                    dispatch(authFailed(error.response.data.error))
                 });
     }
 }

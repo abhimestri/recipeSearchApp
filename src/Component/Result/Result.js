@@ -25,7 +25,7 @@ class ResultPage extends Component {
                     loading: false
                 })
             })
-            .catch(err => console.log(err))
+            .catch()
         } 
 
     eachRecipeHandler = (dataOfRecipe) =>{
@@ -40,8 +40,6 @@ class ResultPage extends Component {
             this.data()
         } 
         let Data =[] , dataSet
-
-        // console.log(this.state.data)
 
         this.state.data.forEach(recipe => {
             dataSet = {
@@ -61,15 +59,18 @@ class ResultPage extends Component {
         }else{
             result = Data.map(recipe => {
                 return (
-                    <Link className="Li-item" key={recipe.recepieName} to={"/searched-recipe" + recipe.recepieName}>
+                    <Link className="Li-item" to={{
+                        pathname : "/searched-recipe" + recipe.recepieName,
+                        search : '?show-result=true?cal'+recipe.calories
+                    }} key={recipe.recepieName} >
                         <EachRecipe 
-                        clicked = {() => this.eachRecipeHandler(recipe.recipeData)}
-                        recipeName = {recipe.recepieName}
-                        image = {recipe.image}
-                        ingredients = {recipe.ingredients}
-                        calories = {recipe.calories}
-                        favorited = {true}
-                    />
+                            clicked = {() => this.eachRecipeHandler(recipe.recipeData)}
+                            recipeName = {recipe.recepieName}
+                            image = {recipe.image}
+                            ingredients = {recipe.ingredients}
+                            calories = {recipe.calories}
+                            favorited = {true}
+                        />
                     </Link>
                 )
             })

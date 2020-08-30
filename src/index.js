@@ -21,15 +21,15 @@ const rootReducer = combineReducers({
 const logger  = store => {
   return next => {
     return action => {
-      console.log("[Middleware] : dispatching" , action)
+      // console.log("[Middleware] : dispatching" , action)
       const result  = next(action)
-      console.log("[Middleware] next state " , store.getState())
+      // console.log("[Middleware] next state " , store.getState())
       return result
     }
   }
 }
 
-const composeEnahancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnahancers = process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose
 
 const store = createStore(rootReducer , composeEnahancers(applyMiddleware(logger , thunk)))
 
@@ -44,7 +44,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

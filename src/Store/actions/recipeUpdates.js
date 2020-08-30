@@ -32,10 +32,10 @@ export const removeFromFavoritesFunction = (deleteFav) => {
     return dispatch => {
         axios.delete(`/favorites/${deleteFav}.json`)
                 .then(res => {
-                    console.log(res)
+                    // console.log(res)
                 })
                 .catch(err => {
-                    console.log(err)
+                    // console.log(err)
                 })
         dispatch(removeFromFavorites())
     }
@@ -66,11 +66,9 @@ export const addFavoritesListToDatabase = ( presentData) => {
         dispatch(addToDataBaseStart())
         axios.post('/favorites.json' , presentData)
                 .then(res => {
-                    console.log(res)
                     dispatch(addToDataBaseSuccess(res))
                 })
                 .catch(err => {
-                    console.log(err)
                     dispatch(addToDataBaseFailed())
                 })
     }

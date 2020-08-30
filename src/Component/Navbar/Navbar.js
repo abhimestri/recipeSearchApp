@@ -19,7 +19,7 @@ class Header extends Component{
         signingIn : false,
         classNameForAuthModal : "authModalClose",
         email : "",
-        password : null,
+        password : "",
         authenticatedUserName : null,
         loaded : false
     }
@@ -136,7 +136,7 @@ class Header extends Component{
                 <SideDrawer/>
                 <div className={this.props.authModalClassName}>
                     {error}
-                     {result}
+                    {result}
                 </div>
                 <i className="fa fa-bars hamburger" onClick={this.drawerToggeler} aria-hidden="true"></i>
                 <div className="NavbarRoutes">
@@ -144,7 +144,7 @@ class Header extends Component{
                         <li className="NavbarUl-Li"><Link to="/" className="Li-item">Home</Link></li>
                         <li className="NavbarUl-Li"><Link to="/favorites" className="Li-item" >Favorites</Link></li>
                         <li className="NavbarUl-Li"><a rel="noopener noreferrer" href="https://developer.edamam.com/edamam-recipe-api" target="_blank" className="Li-item" >Documentation</a></li>
-                        <li className="NavbarUl-Li"><Link  onClick={() => this.openAuthModal()} className="Li-item" > Sign Up </Link></li>
+                        <li className="NavbarUl-Li"><Link to="/" onClick={() => this.openAuthModal()} className="Li-item" > Sign Up </Link></li>
                     </ul>
                     <Switch>
                         <Route path="/" exact component={Mainpage}/>
